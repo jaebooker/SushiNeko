@@ -70,4 +70,34 @@ class GameScene: SKScene {
         //add the sushi to the tower's greatness!
         sushiTower.append(newPiece)
     }
+    func moveTowerDown() {
+        var n: CGFloat = 0
+        for piece in sushiTower {
+            let y = (n * 55) + 215
+            piece.position.y -= (piece.position.y - y) * 0.5
+            n += 1
+        }
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        //find touch location
+        let location = touch.location(in: self)
+        //find out if touch was left or right side
+        if location.x > size.width / 2 {
+            cat.side = .right
+        } else {
+            cat.side = .left
+        }
+        //gets sushi as first sushi on base
+        if let firstPiece = sushiTower.first as SushiPiece? {
+            //remove first sushi
+            sushiTower.removeFirst()
+            firstPiece.flip(cat.side)
+            //add new sushi to top
+            addRandomPieces(total: 1)
+        }
+    }
+    override func update(_ currentTime: TimeInterval) {
+        moveTowerDown()
+    }
 }

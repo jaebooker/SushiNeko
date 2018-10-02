@@ -7,6 +7,7 @@
 //
 import SpriteKit
 class Character: SKSpriteNode {
+    let punch = SKAction(named: "Punch")
     var side: Side = .left {
         didSet {
             if side == .left {
@@ -17,6 +18,7 @@ class Character: SKSpriteNode {
                 xScale = -1
                 position.x = 252
             }
+            run(punch!)
         }
     }
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
