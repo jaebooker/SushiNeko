@@ -12,18 +12,49 @@ import SpriteKit
 enum Side {
     case left, right, none
 }
+enum GameState {
+    case title, ready, playing, gameOver
+}
 
 class GameScene: SKScene {
+    var levelCounter: Int = 0
+    var state: GameState = .title
+    var strength: CGFloat = 0.01 {
+        didSet {
+            //health bar between 0-1
+            healthBar.xScale = strength
+        }
+    }
+    var score: Int = 100 {
+        didSet {
+            scoreCard.text = String(score)
+        }
+    }
+    var playButton: MSButtonNode!
+    var healthBar: SKSpriteNode!
+    var scoreCard: SKLabelNode!
     var sushiBasePiece: SushiPiece!
     var cat: Character!
     var sushiTower: [SushiPiece] = []
+    let turnGreen = SKAction.colorize(with: .green, colorBlendFactor: 1.0, duration: 0.50)
+    let turnGold = SKAction.colorize(with: .yellow, colorBlendFactor: 1.0, duration: 0.50)
+    let turnBlue = SKAction.colorize(with: .blue, colorBlendFactor: 1.0, duration: 0.50)
+    let turnRed = SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.50)
+    let turnWhite = SKAction.colorize(with: .white, colorBlendFactor: 1.0, duration: 0.50)
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
+        playButton = childNode(withName: "playButton") as! MSButtonNode
+//        playButton.selectedHandler = {
+//            self.state = .ready
+//        }
+        healthBar = childNode(withName: "healthBar") as! SKSpriteNode
+        scoreCard = childNode(withName: "scoreCard") as! SKLabelNode
         sushiBasePiece = childNode(withName: "sushiBasePiece") as! SushiPiece
         cat = childNode(withName: "Cat") as! Character
         //connect chopsticks
         sushiBasePiece.connectChopsticks()
+        healthBar.run(turnWhite)
         addTowerPiece(side: .none)
         addTowerPiece(side: .right)
         addRandomPieces(total: 10)
@@ -78,7 +109,97 @@ class GameScene: SKScene {
             n += 1
         }
     }
+    func gameLevel() {
+        
+        for s in sushiTower {
+            if levelCounter == 0 {
+                s.run(turnGreen)
+            }
+            if levelCounter == 1 {
+                s.run(turnBlue)
+            }
+            if levelCounter == 2 {
+                s.run(turnRed)
+            }
+            if levelCounter == 3 {
+                s.run(turnGold)
+            }
+        }
+        if levelCounter == 0 {
+            cat.run(turnGreen)
+        }
+        if levelCounter == 1 {
+            cat.run(turnBlue)
+        }
+        if levelCounter == 2 {
+            cat.run(turnRed)
+        }
+        if levelCounter == 3 {
+            cat.run(turnGold)
+        }
+        if levelCounter == 4 {
+            state = .gameOver
+            var counting = 0
+            for s in sushiTower {
+                if counting == 0 {
+                    s.run(turnGreen)
+                }
+                if counting == 1 {
+                    s.run(turnBlue)
+                }
+                if counting == 2 {
+                    s.run(turnRed)
+                }
+                if counting == 3 {
+                    s.run(turnGold)
+                }
+                if counting == 4 {
+                    s.run(turnGreen)
+                }
+                if counting == 5 {
+                    s.run(turnBlue)
+                }
+                if counting == 6 {
+                    s.run(turnRed)
+                }
+                if counting == 7 {
+                    s.run(turnGold)
+                }
+                if counting == 8 {
+                    s.run(turnGreen)
+                }
+                if counting == 9 {
+                    s.run(turnBlue)
+                }
+                if counting == 10 {
+                    s.run(turnRed)
+                }
+                if counting == 11 {
+                    s.run(turnGold)
+                }
+                counting += 1
+            }
+        }
+        strength = 0
+        playButton.selectedHandler = {
+            let skView = self.view as SKView?
+            guard let scene = GameScene(fileNamed: "GameScene") as GameScene? else {
+                return
+            }
+            scene.scaleMode = .aspectFill
+            skView?.presentScene(scene)
+        }
+        levelCounter += 1
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if state == .gameOver {
+            return
+        }
+        if state == .title {
+            state = .playing
+            playButton.removeFromParent()
+        }
+        //playButton.position.z = -1
         let touch = touches.first!
         //find touch location
         let location = touch.location(in: self)
@@ -90,6 +211,16 @@ class GameScene: SKScene {
         }
         //gets sushi as first sushi on base
         if let firstPiece = sushiTower.first as SushiPiece? {
+            if cat.side == firstPiece.side {
+                strength -= 0.01
+                score -= 20
+            } else {
+                strength += 0.01
+                score += 10
+                if strength > 1 {
+                    gameLevel()
+                }
+            }
             //remove first sushi
             sushiTower.removeFirst()
             firstPiece.flip(cat.side)
@@ -98,6 +229,14 @@ class GameScene: SKScene {
         }
     }
     override func update(_ currentTime: TimeInterval) {
-        moveTowerDown()
+        if state == .gameOver {
+            cat.run(turnGreen)
+            cat.run(turnBlue)
+            cat.run(turnRed)
+            cat.run(turnGold)
+        } else {
+            moveTowerDown()
+            score -= 1
+        }
     }
 }
