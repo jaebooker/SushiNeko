@@ -30,7 +30,7 @@ class GameScene: SKScene {
             scoreCard.text = String(score)
         }
     }
-    var playButton: MSButtonNode!
+    var playButton: SKSpriteNode!
     var healthBar: SKSpriteNode!
     var scoreCard: SKLabelNode!
     var sushiBasePiece: SushiPiece!
@@ -46,7 +46,7 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         self.addChild(backgroundSound)
         super.didMove(to: view)
-        playButton = childNode(withName: "playButton") as! MSButtonNode
+        playButton = childNode(withName: "playButton") as! SKSpriteNode
 //        playButton.selectedHandler = {
 //            self.state = .ready
 //        }
@@ -186,14 +186,14 @@ class GameScene: SKScene {
             }
         }
         strength = 0
-        playButton.selectedHandler = {
-            let skView = self.view as SKView?
-            guard let scene = GameScene(fileNamed: "GameScene") as GameScene? else {
-                return
-            }
-            scene.scaleMode = .aspectFill
-            skView?.presentScene(scene)
-        }
+//        playButton.selectedHandler = {
+//            let skView = self.view as SKView?
+//            guard let scene = GameScene(fileNamed: "GameScene") as GameScene? else {
+//                return
+//            }
+//            scene.scaleMode = .aspectFill
+//            skView?.presentScene(scene)
+//        }
         levelCounter += 1
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
