@@ -41,8 +41,10 @@ class GameScene: SKScene {
     let turnBlue = SKAction.colorize(with: .blue, colorBlendFactor: 1.0, duration: 0.50)
     let turnRed = SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.50)
     let turnWhite = SKAction.colorize(with: .white, colorBlendFactor: 1.0, duration: 0.50)
+    var backgroundSound = SKAudioNode(fileNamed: "itsGonnaMakeMeAMonsterThough.mp3")
     
     override func didMove(to view: SKView) {
+        self.addChild(backgroundSound)
         super.didMove(to: view)
         playButton = childNode(withName: "playButton") as! MSButtonNode
 //        playButton.selectedHandler = {
@@ -114,6 +116,9 @@ class GameScene: SKScene {
         for s in sushiTower {
             if levelCounter == 0 {
                 s.run(turnGreen)
+                //backgroundSound.removeFromParent()
+                //backgroundSound = SKAudioNode(fileNamed: "gonnaFlyNow.mp3")
+                //addChild(backgroundSound)
             }
             if levelCounter == 1 {
                 s.run(turnBlue)

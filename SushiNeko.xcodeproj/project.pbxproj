@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D8B339C2165FA920072C208 /* gonnaFlyNow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0D8B339B2165FA920072C208 /* gonnaFlyNow.mp3 */; };
+		0D8B339E2165FCB60072C208 /* itsGonnaMakeMeAMonsterThough.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0D8B339D2165FCB60072C208 /* itsGonnaMakeMeAMonsterThough.mp3 */; };
 		0DB36F342163279F00696121 /* AnimationActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0DB36F332163279F00696121 /* AnimationActions.sks */; };
 		0DCBB9D1215887720082DE4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBB9D0215887720082DE4D /* AppDelegate.swift */; };
 		0DCBB9D3215887720082DE4D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0DCBB9D2215887720082DE4D /* GameScene.sks */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D8B339B2165FA920072C208 /* gonnaFlyNow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gonnaFlyNow.mp3; sourceTree = "<group>"; };
+		0D8B339D2165FCB60072C208 /* itsGonnaMakeMeAMonsterThough.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = itsGonnaMakeMeAMonsterThough.mp3; sourceTree = "<group>"; };
 		0DB36F332163279F00696121 /* AnimationActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AnimationActions.sks; sourceTree = "<group>"; };
 		0DCBB9CD215887720082DE4D /* SushiNeko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SushiNeko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DCBB9D0215887720082DE4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,8 +125,10 @@
 				0DCBBA042158880A0082DE4D /* assets.atlas */,
 				0DCBB9D0215887720082DE4D /* AppDelegate.swift */,
 				0DCBB9D2215887720082DE4D /* GameScene.sks */,
+				0D8B339D2165FCB60072C208 /* itsGonnaMakeMeAMonsterThough.mp3 */,
 				0DCBBA0D2158AD0E0082DE4D /* Character.swift */,
 				0DCBB9D4215887720082DE4D /* Actions.sks */,
+				0D8B339B2165FA920072C208 /* gonnaFlyNow.mp3 */,
 				0DCBB9D6215887720082DE4D /* GameScene.swift */,
 				0DCBBA0B21588EDD0082DE4D /* SushiPiece.swift */,
 				0DCBB9D8215887720082DE4D /* GameViewController.swift */,
@@ -265,8 +271,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DCBB9DC215887720082DE4D /* Main.storyboard in Resources */,
+				0D8B339E2165FCB60072C208 /* itsGonnaMakeMeAMonsterThough.mp3 in Resources */,
 				0DCBB9D3215887720082DE4D /* GameScene.sks in Resources */,
 				0DCBBA052158880A0082DE4D /* assets.atlas in Resources */,
+				0D8B339C2165FA920072C208 /* gonnaFlyNow.mp3 in Resources */,
 				0DCBB9DE215887740082DE4D /* Assets.xcassets in Resources */,
 				0DB36F342163279F00696121 /* AnimationActions.sks in Resources */,
 				0DCBB9E1215887740082DE4D /* LaunchScreen.storyboard in Resources */,
