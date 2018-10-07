@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D7EA58D2169C14800A356EF /* boxingBell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0D7EA58C2169C14800A356EF /* boxingBell.mp3 */; };
+		0D7EA58F2169C25B00A356EF /* victoryGong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0D7EA58E2169C25B00A356EF /* victoryGong.mp3 */; };
 		0D8B339C2165FA920072C208 /* gonnaFlyNow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0D8B339B2165FA920072C208 /* gonnaFlyNow.mp3 */; };
 		0D8B339E2165FCB60072C208 /* itsGonnaMakeMeAMonsterThough.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0D8B339D2165FCB60072C208 /* itsGonnaMakeMeAMonsterThough.mp3 */; };
 		0DB36F342163279F00696121 /* AnimationActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0DB36F332163279F00696121 /* AnimationActions.sks */; };
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D7EA58C2169C14800A356EF /* boxingBell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = boxingBell.mp3; sourceTree = "<group>"; };
+		0D7EA58E2169C25B00A356EF /* victoryGong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = victoryGong.mp3; sourceTree = "<group>"; };
 		0D8B339B2165FA920072C208 /* gonnaFlyNow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gonnaFlyNow.mp3; sourceTree = "<group>"; };
 		0D8B339D2165FCB60072C208 /* itsGonnaMakeMeAMonsterThough.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = itsGonnaMakeMeAMonsterThough.mp3; sourceTree = "<group>"; };
 		0DB36F332163279F00696121 /* AnimationActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AnimationActions.sks; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 				0D8B339D2165FCB60072C208 /* itsGonnaMakeMeAMonsterThough.mp3 */,
 				0DCBBA0D2158AD0E0082DE4D /* Character.swift */,
 				0DCBB9D4215887720082DE4D /* Actions.sks */,
+				0D7EA58C2169C14800A356EF /* boxingBell.mp3 */,
+				0D7EA58E2169C25B00A356EF /* victoryGong.mp3 */,
 				0D8B339B2165FA920072C208 /* gonnaFlyNow.mp3 */,
 				0DCBB9D6215887720082DE4D /* GameScene.swift */,
 				0DCBBA0B21588EDD0082DE4D /* SushiPiece.swift */,
@@ -274,6 +280,8 @@
 				0D8B339E2165FCB60072C208 /* itsGonnaMakeMeAMonsterThough.mp3 in Resources */,
 				0DCBB9D3215887720082DE4D /* GameScene.sks in Resources */,
 				0DCBBA052158880A0082DE4D /* assets.atlas in Resources */,
+				0D7EA58D2169C14800A356EF /* boxingBell.mp3 in Resources */,
+				0D7EA58F2169C25B00A356EF /* victoryGong.mp3 in Resources */,
 				0D8B339C2165FA920072C208 /* gonnaFlyNow.mp3 in Resources */,
 				0DCBB9DE215887740082DE4D /* Assets.xcassets in Resources */,
 				0DB36F342163279F00696121 /* AnimationActions.sks in Resources */,

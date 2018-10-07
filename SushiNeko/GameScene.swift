@@ -132,18 +132,63 @@ class GameScene: SKScene {
         }
         if levelCounter == 0 {
             cat.run(turnGreen)
+            let levelSound = SKAudioNode(fileNamed: "boxingBell.mp3")
+            levelSound.autoplayLooped = false
+            addChild(levelSound)
+            self.run(SKAction.sequence([
+                SKAction.wait(forDuration: 0.5),
+                SKAction.run {
+                    // this will start playing the sound
+                    levelSound.run(SKAction.play())
+                }]))
         }
         if levelCounter == 1 {
             cat.run(turnBlue)
+            let levelSound = SKAudioNode(fileNamed: "boxingBell.mp3")
+            levelSound.autoplayLooped = false
+            addChild(levelSound)
+            self.run(SKAction.sequence([
+                SKAction.wait(forDuration: 0.5),
+                SKAction.run {
+                    // this will start playing the sound
+                    levelSound.run(SKAction.play())
+                }]))
         }
         if levelCounter == 2 {
             cat.run(turnRed)
+            let levelSound = SKAudioNode(fileNamed: "boxingBell.mp3")
+            levelSound.autoplayLooped = false
+            addChild(levelSound)
+            self.run(SKAction.sequence([
+                SKAction.wait(forDuration: 0.5),
+                SKAction.run {
+                    // this will start playing the sound
+                    levelSound.run(SKAction.play())
+                }]))
         }
         if levelCounter == 3 {
             cat.run(turnGold)
+            let levelSound = SKAudioNode(fileNamed: "boxingBell.mp3")
+            levelSound.autoplayLooped = false
+            addChild(levelSound)
+            self.run(SKAction.sequence([
+                SKAction.wait(forDuration: 0.5),
+                SKAction.run {
+                    // this will start playing the sound
+                    levelSound.run(SKAction.play())
+                }]))
         }
         if levelCounter == 4 {
             state = .gameOver
+            let levelSound = SKAudioNode(fileNamed: "victoryGong.mp3")
+            levelSound.autoplayLooped = false
+            addChild(levelSound)
+            self.run(SKAction.sequence([
+                SKAction.wait(forDuration: 0.5),
+                SKAction.run {
+                    // this will start playing the sound
+                    levelSound.run(SKAction.play())
+                }]))
             var counting = 0
             for s in sushiTower {
                 if counting == 0 {
