@@ -115,6 +115,7 @@ class GameScene: SKScene {
         
         for s in sushiTower {
             if levelCounter == 0 {
+                //turn sushi certain color briefly
                 s.run(turnGreen)
                 //backgroundSound.removeFromParent()
                 //backgroundSound = SKAudioNode(fileNamed: "gonnaFlyNow.mp3")
@@ -131,10 +132,13 @@ class GameScene: SKScene {
             }
         }
         if levelCounter == 0 {
+            //change color of cat
             cat.run(turnGreen)
+            //set sound effect
             let levelSound = SKAudioNode(fileNamed: "boxingBell.mp3")
             levelSound.autoplayLooped = false
             addChild(levelSound)
+            //run sound effect
             self.run(SKAction.sequence([
                 SKAction.wait(forDuration: 0.5),
                 SKAction.run {
@@ -179,6 +183,7 @@ class GameScene: SKScene {
                 }]))
         }
         if levelCounter == 4 {
+            //ends game
             state = .gameOver
             let levelSound = SKAudioNode(fileNamed: "victoryGong.mp3")
             levelSound.autoplayLooped = false
@@ -189,8 +194,11 @@ class GameScene: SKScene {
                     // this will start playing the sound
                     levelSound.run(SKAction.play())
                 }]))
+            //sets counter for sushi tower
             var counting = 0
+            //creates loop for sushi
             for s in sushiTower {
+                //changes each sushi piece to a different color
                 if counting == 0 {
                     s.run(turnGreen)
                 }
@@ -262,9 +270,11 @@ class GameScene: SKScene {
         //gets sushi as first sushi on base
         if let firstPiece = sushiTower.first as SushiPiece? {
             if cat.side == firstPiece.side {
+                //takes away strength and score when kitty interacts with a chopstick
                 strength -= 0.01
                 score -= 20
             } else {
+                //increases strength and score
                 strength += 0.01
                 score += 10
                 if strength > 1 {
@@ -280,12 +290,14 @@ class GameScene: SKScene {
     }
     override func update(_ currentTime: TimeInterval) {
         if state == .gameOver {
+            //changes cat color very quickly
             cat.run(turnGreen)
             cat.run(turnBlue)
             cat.run(turnRed)
             cat.run(turnGold)
         } else {
             moveTowerDown()
+            //decreases score when you are taking too long to play
             score -= 1
         }
     }
